@@ -1,0 +1,37 @@
+--Fuse----
+0xFD
+0xC9
+0x7E
+
+--Basic------------------------
+AT+RST
+AT+UART_DEF=115200,8,1,0,0///3
+AT+UART_DEF=38400,8,1,0,0
+AT+RESTORE
+
+--WiFi------------------------
+AT+CWJAP_DEF="TP-LINK_9C7C","@@@###66@#"
+AT+CWJAP_DEF="Broo","mrb131113","60:83:34:29:2d:2c"
+AT+CWMODE_DEF=1
+
+--TCP/IP----------------------
+AT+CIFSR
+AT+CIPSTATUS
+AT+CIPMUX=1
+AT+CIPSERVER=1,1001
+AT+CIPSTO=60
+AT+CIPDINFO=1
+
+AT+CIPSTA_DEF="192.168.45.1","192.168.1.1","255.255.0.0"
+
+--TX/RX-----
+AT+CIPSEND=<link ID>, <length>
+AT+CIPSENDBUF=<link ID>, <length>
+AT+CIPBUFSTATUS
+AT+CIPCLOSE=<link ID>
+
++IPD
+AT+CIPSEND=0,3
+yes
+
+
